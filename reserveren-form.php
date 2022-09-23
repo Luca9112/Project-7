@@ -40,7 +40,7 @@
              min="<?=$mindate?>">
 
 
-      <input type="submit" value="Submit"/>
+      <input type="submit" value="Reserveren"/>
     </form>
   </body>
 </html>
