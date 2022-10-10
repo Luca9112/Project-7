@@ -4,12 +4,13 @@
 
     <section class="signup-form"> 
         <h2> Sign up</h2> 
-        <form action="signup.inc.php" method="post"> <br>
+        <form action="includes/signup.inc.php" method="post"> <br>
          <input type="text" name="name" placeholder="Voornaam & achternaam..."> <br> 
-         <input type="text" name="Email" placeholder="E-mail..."><br>
-         <input type="text" name="telefoon" placeholder="Telefoon nummer..."> <br> 
-         <input type="text" name="wachtwoord" placeholder="Wachtwoord..."> <br> 
-        <button type="submit" name="submit">Signup </button>         
+         <input type="text" name="email" placeholder="E-mail..."><br>
+         <input type="text" name="uid" placeholder="gebruikersnaam..."> <br> 
+         <input type="password" name="pwd" placeholder="Wachtwoord..."> <br>
+         <input type="password" name="pwdrepeat" placeholder="Wachtwoord herhalen..."> <br>
+        <button type="submit" name="submit">Sign up </button>         
         </form> 
     </section>
 
