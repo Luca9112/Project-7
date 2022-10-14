@@ -2,8 +2,8 @@
 <html>
   <head>
     <?php
-    include 'functions.php';
-    include 'dbh.php';
+    include 'includes/functions.inc.php';
+    include 'includes/dbh.inc.php';
     ?>
     <title>resrerveren</title>
     <link href="reserveren.css" rel="stylesheet">

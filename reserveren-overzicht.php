@@ -1,7 +1,7 @@
 <html>
     <?php
-        include 'dbh.php';
-        include 'functions.php';
+        include 'includes/dbh.inc.php';
+        include 'includes/functions.inc.php';
         ?>
 <thead>
         <tr>

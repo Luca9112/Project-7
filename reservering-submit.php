@@ -7,8 +7,8 @@
     $date = $_POST["date"];
 
 
-    require_once 'dbh.php';
-    require_once 'functions.php';
+    require_once 'includes/dbh.inc.php';
+    require_once 'includes/functions.inc.php';
 
     reserveringToevoegen($conn, $date, $name, $email, $phoneNumber);
      
