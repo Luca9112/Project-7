@@ -14,7 +14,7 @@
                     <?php
                       if (isset($_SESSION["useruid"])){ 
                         echo "<li> <a href='profile.php'>profiel</a></li>"; 
-                        echo "<li> <a href='logout.php'>Log uit</a></li> "; 
+                        echo "<li> <a href='includes/logout.inc.php'>Log uit</a></li> "; 
                       }  
                       else { 
                         echo "<li> <a href='signup.php'>Account aanmaken </a></li>";  
