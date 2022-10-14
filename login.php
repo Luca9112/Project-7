@@ -1,5 +1,5 @@
 <?php 
-    include_once 'header.php'; 
+    include_once 'header.php';
 ?> 
 
     <section class="signup-form"> 
@@ -9,6 +9,18 @@
          <input type="password" name="pwd" placeholder="Wachtwoord..."> <br>
         <button type="submit" name="submit">log in  </button>         
         </form> 
+
+        <?php
+    if (isset($_GET["error"])) {
+        if ($_GET["error"] == "emptyinput")
+        {
+            echo "<p>niet alle velden zijn ingevuld!</P>"; 
+        }
+        else if ($_GET["error"] == "wronglogin" ) { 
+            echo "<p>email en wachtwoord zijn incorect!</P>";
+        }
+    } 
+?>
     </section>
 
     
