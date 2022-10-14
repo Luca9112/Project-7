@@ -1,7 +1,9 @@
 <?php 
     include_once 'header.php'; 
 ?> 
-
+</br> 
+</br> 
+</br> 
     <section class="signup-form"> 
         <h2> Sign up</h2> 
         <form action="includes/signup.inc.php" method="post"> <br>

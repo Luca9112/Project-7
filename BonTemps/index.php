@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<?php
+    include_once 'header.php' ;
+?>
+<!DOCTYPE <html>
+    <html lang ="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,19 +18,6 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-            <div class="container px-5">
-                <a class="navbar-brand" href="#page-top">Bon Temps</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <!-- Header-->
         <div class="plaatje-img">
             <img src="assets/img/pexels-nastyasensei-331107.jpg" style="width:100%">
@@ -43,7 +34,7 @@
                             <h2 class="display-4">Restaurant</h2>
                             <h3 class="display-4">Bon Temps</h3>
                             <p>Restaurant Bon Temps is een luxe restaurant voor een zakelijke lunch of diner met vrienden en familie. Er zijn veel verschillende menu's die U kunt kiezen, er is voor iedereen wel wat. Reserveren gaat makkelijk klik op de knop hier onder.</p>
-                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Reserveren</a>
+                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="reserveren-form.php">Reserveren</a>
                         </div>
                     </div>
                 </div>

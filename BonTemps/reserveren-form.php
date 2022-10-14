@@ -2,11 +2,15 @@
 <html>
   <head>
     <?php
-    include 'includes/functions.inc.php';
-    include 'includes/dbh.inc.php';
+        include_once 'header.php';
+    include '../includes/functions.inc.php';
+    include '../includes/dbh.inc.php';
     ?>
+    </br> 
+</br> 
+</br> 
     <title>resrerveren</title>
-    <link href="reserveren.css" rel="stylesheet">
+    <link href="css/reserveren.css" rel="stylesheet">
     </script>
   </head>
   <body>   
