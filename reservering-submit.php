@@ -13,6 +13,6 @@
     reserveringToevoegen($conn, $date, $name, $email, $phoneNumber);
      
   } else {
-    header("location: reserveren-form.php?error=kkrding");
+    header("location: reserveren-form.php?error=erisietsfoutgegaan");
     exit();
   }
