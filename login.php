@@ -12,12 +12,11 @@
 
         <?php
     if (isset($_GET["error"])) {
-        if ($_GET["error"] == "emptyinput")
-        {
-            echo "<p>niet alle velden zijn ingevuld!</P>"; 
+        if ($_GET["error"] == "emptyinput"){
+            echo "<p>niet alle velden zijn ingevuld!</p>"; 
         }
         else if ($_GET["error"] == "wronglogin" ) { 
-            echo "<p>email en wachtwoord zijn incorect!</P>";
+            echo "<p>email en wachtwoord zijn incorect!</php>";
         }
     } 
 ?>
