@@ -11,7 +11,7 @@
   </head>
   <body>   
     <h1>Reserveren</h1>
-    <form id="resForm" method="post" target="_self">
+    <form action="reservering-submit.php" id="resForm" method="post" target="_self">
       <label for="naam">Naam</label>
       <input type="text" required name="name" value=""/>
 
@@ -19,16 +19,16 @@
       <input type="email" required name="email" value=""/>
 
       <label for="telefoonnummer">Telefoonnummer</label>
-      <input type="text" required name="tel" value=""/>
+      <input type="text" required name="phonenumber" value=""/>
       <?php
       $mindate = date("Y-m-d");
       ?>
 
       <label>Datum</label>
-      <input type="date" required id="datum" name="date"
-             min="<?=$mindate?>">
+      <input type="date" required id="date" name="date"
+             min="<?=$mindate?>"/>
 
-      <input type="submit" value="Reserveren"/>
+      <input type="submit" value="submit" name="submit"/>
     </form>
   </body>
 </html>

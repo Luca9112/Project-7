@@ -1,29 +1,23 @@
 <?php
-include 'dbh.php';
-?>
-<?php
-class Reservation {
+
+
+
+function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber) {
+  $sql = "INSERT INTO reserveringen (datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header("location: reserveren-form.php?error=stmtfailed");
+      exit();
+  }
   
-  function kkr($conn, $name, $email, $phoneNumber,$date)
-{
-    $sql = "INSERT INTO reserveringen (datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?);";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../reserveren-form.php?error=stmtfailed");
-        exit();
-    }
-
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $phoneNumber,$date);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    session_start();
-    $emailExists = emailExists($conn, $email);
-
-    $_SESSION['userid'] = $emailExists["id"];
-    $_SESSION['naam'] = $emailExists["naam"];
-    $_SESSION['email'] = $emailExists["email"];
-    $_SESSION['telefoon'] = $emailExists["telefoon"];
+  mysqli_stmt_bind_param($stmt, "ssss", $date, $name, $email, $phoneNumber);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  session_start();
+  header("location: reserveren-form.php?error=restaurantToegevoegd");
+  exit();
 }
+
 
  
   function getDay ($day="") {
@@ -31,6 +25,17 @@ class Reservation {
     if ($day=="") { $day = date("Y-m-d"); }
 
   }
-}
-
-$_RSV = new Reservation();
+  function reserveringenOphalen($conn, $userid) {
+    $sql = "SELECT * FROM reserveringen WHERE usersid = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: reserveren-form.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $userid);
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+    $data = $resultData->fetch_assoc();
+    return $data;
+  }
