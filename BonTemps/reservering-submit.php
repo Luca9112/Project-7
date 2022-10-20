@@ -1,6 +1,8 @@
 <?php 
+session_start();
   if (isset($_POST["submit"])) {
 
+    $userid = $_SESSION['userid'];
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phoneNumber = $_POST["phonenumber"];
@@ -10,7 +12,7 @@
     require_once '../includes/dbh.inc.php';
     require_once '../includes/functions.inc.php';
 
-    reserveringToevoegen($conn, $date, $name, $email, $phoneNumber);
+    reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid);
      
   } else {
     header("location: reserveren-form.php?error=kkrding");

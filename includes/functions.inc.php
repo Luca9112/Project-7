@@ -1,13 +1,13 @@
 <?php 
-function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber) {
-  $sql = "INSERT INTO reserveringen (datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?);";
+function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid) {
+  $sql = "INSERT INTO reserveringen (userid, datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("location: reserveren-form.php?error=stmtfailed");
       exit();
   }
   
-  mysqli_stmt_bind_param($stmt, "ssss", $date, $name, $email, $phoneNumber);
+  mysqli_stmt_bind_param($stmt, "issss", $userid, $date, $name, $email, $phoneNumber);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   session_start();
@@ -23,7 +23,7 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber) {
 
   }
   function reserveringenOphalen($conn, $userid) {
-    $sql = "SELECT * FROM reserveringen WHERE usersid = ?;";
+    $sql = "SELECT * FROM reserveringen WHERE userid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: reserveren-form.php?error=stmtfailed");
@@ -32,9 +32,8 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber) {
     mysqli_stmt_bind_param($stmt, "i", $userid);
     mysqli_stmt_execute($stmt);
     $resultData = mysqli_stmt_get_result($stmt);
+    return $resultData;
     mysqli_stmt_close($stmt);
-    $data = $resultData->fetch_assoc();
-    return $data;
   }
 function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) { 
     $result; 
@@ -119,6 +118,9 @@ function createUser($conn, $name, $email, $username, $pwd) {
     mysqli_stmt_bind_param($stmt, "ssss",  $name, $email, $username,   $hashedPwd); 
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt); 
+
+// alle sessies maken
+
     header("location: ../login.php?error=none"); 
     exit();
 }
@@ -160,7 +162,7 @@ function LoginUser($conn, $username, $pwd ) {
         session_start(); 
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
-        header("location: ../index.php");
+        header("location: ../BonTemps/index.php");
         exit(); 
     }
 }

@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <link rel="stylesheet" href="css/styles.css">
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container px-5">
         <a class="navbar-brand" href="index.php">Bon Temps</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

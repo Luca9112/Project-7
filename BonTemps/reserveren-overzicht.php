@@ -2,8 +2,10 @@
     <?php
         include '../includes/dbh.inc.php';
         include '../includes/functions.inc.php';
+        include_once 'header.php';
         ?>
-<thead>
+<table>
+    <thead>
         <tr>
             <th>Naam</th>
             <th>Adres</th>
@@ -13,9 +15,8 @@
     </thead>
     <tbody>
         <?php
-        $_SESSION['usersid'] = 4;
         if (!isset($_GET['filter'])) {
-            $data = reserveringenOphalen($conn, $_SESSION['usersId']);
+            $data = reserveringenOphalen($conn, $_SESSION['userid']);
             if ($data->num_rows > 0) {
                 while ($row = $data->fetch_assoc()) {
         ?>
@@ -23,7 +24,7 @@
                         <td><?php echo $row["datum"]; ?></td>
                         <td><?php echo $row["naam"]; ?></td>
                         <td><?php echo $row["email"]; ?></td>
-                        <td><?php echo $row["telefoon"]; ?></td>
+                        <td><?php echo $row["telefoonnummer"]; ?></td>
                         
                     </tr>
         <?php
