@@ -1,15 +1,9 @@
-
 <?php 
     include_once 'header.php'; 
 ?> 
 
-<<<<<<< Updated upstream:signup.php
-    <section class="signup-form"> 
-=======
-
 <section class="signup"> 
 
->>>>>>> Stashed changes:BonTemps/signup.php
         <h2> Sign up</h2> 
         <form action="includes/signup.inc.php" method="post"> <br>
          <input type="text" name="name" placeholder="Voornaam & achternaam..."> <br> 
