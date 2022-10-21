@@ -26,7 +26,7 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber) {
     $sql = "SELECT * FROM reserveringen WHERE usersid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: reserveren-form.php?error=stmtfailed");
+        header("location: reserveren-form.php?error=stmtfailed1");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "i", $userid);
@@ -164,4 +164,19 @@ function LoginUser($conn, $username, $pwd ) {
         exit(); 
     }
 }
+function MenuAanmaken($conn, $voorgerecht, $hoofdgerecht, $nagerecht, $borrelhapjes, $dranken) {
+    $sql = "INSERT INTO menu (Voorgerecht, Hoofdgerecht, Nagerecht, Borrelhapjes, Dranken) VALUES (?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/Menu.php?error=stmtfailed");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "sssss", $voorgerecht, $hoofdgerecht, $nagerecht, $borrelhapjes, $dranken);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    session_start();
+    header("location: ../BonTemps/Menu.php?error=aangemaakt");
+    exit();
+  }
 ?>

@@ -17,6 +17,7 @@
                 echo "<li class='nav-item'><a class='nav-link' href='loguit.php'>Log uit</a></li>"; 
 } 
     else{ 
+        echo "<li class='nav-item'><a class='nav-link' href='reserveren-overzicht.php'>Reserveren overzicht</a></li>"; 
         echo "<li class='nav-item'><a class='nav-link' href='signup.php'>account aanmaken </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='login.php'>Log in</a></li>"; 
 

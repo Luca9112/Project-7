@@ -51,7 +51,7 @@
                         <div class="p-5">
                             <h2 class="display-4">Onze menu's</h2>
                             <p>Onze menu's zijn vooraf al opgesteld en U kunt de keuze maken welk menu U wilt. Er is een gevarieerd keuze tussen vis, vlees, vegentarisch en nog veel meer. Bekijk hier onder onze menu's!</p>
-                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Bekijk menu's</a>
+                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="Menu.php">Bekijk menu's</a>
                         </div>
                     </div>
                 </div>
