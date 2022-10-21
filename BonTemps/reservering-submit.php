@@ -1,6 +1,6 @@
 <?php 
 session_start();
-  if (isset($_POST["submit"])) {
+  if (isset($_POST["reserveren"])) {
 
     $userid = $_SESSION['userid'];
     $name = $_POST["name"];
@@ -15,6 +15,6 @@ session_start();
     reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid);
      
   } else {
-    header("location: reserveren-form.php?error=kkrding");
+    header("location: reserveren-form.php?error=erisietsfoutgegaan");
     exit();
   }

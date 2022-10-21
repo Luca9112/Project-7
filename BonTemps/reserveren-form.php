@@ -11,7 +11,6 @@
 </br> 
     <title>resrerveren</title>
     <link href="css/reserveren.css" rel="stylesheet">
-    </script>
   </head>
   <body>   
     <h1>Reserveren</h1>
@@ -32,7 +31,7 @@
       <input type="date" required id="date" name="date"
              min="<?=$mindate?>"/>
 
-      <input type="submit" value="submit" name="submit"/>
+      <input type="submit" value="reserveren" name="reserveren"/>
     </form>
   </body>
 </html>
