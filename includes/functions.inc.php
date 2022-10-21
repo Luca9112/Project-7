@@ -3,7 +3,7 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid
   $sql = "INSERT INTO reserveringen (userid, datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: reserveren-form.php?error=stmtfailed");
+      header("location: ../BonTemps/reserveren-form.php?error=stmtfailed");
       exit();
   }
   
@@ -11,7 +11,7 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   session_start();
-  header("location: reserveren-form.php?error=restaurantToegevoegd");
+  header("location: ../BonTemps/reserveren-form.php?error=reserveringToegevoegd");
   exit();
 }
 
@@ -19,14 +19,14 @@ function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid
  
   function getDay ($day="") {
     
-    if ($day=="") { $day = date("Y-m-d"); }
+    if ($day=="") { $day = date("d-m-Y"); }
 
   }
   function reserveringenOphalen($conn, $userid) {
     $sql = "SELECT * FROM reserveringen WHERE userid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: reserveren-form.php?error=stmtfailed");
+        header("location: ../BonTemps/reserveren-form.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "i", $userid);
@@ -85,7 +85,7 @@ function uidExists($conn, $email) {
     $sql = "SELECT * FROM users WHERE usersEmail = ?;"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=stmtfailed"); 
+        header("location: ../BonTemps/signup.php?error=stmtfailed"); 
         exit();
     }
 
@@ -109,7 +109,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
     $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=stmtfailed"); 
+        header("location: ../BonTemps/signup.php?error=stmtfailed"); 
         exit();
     }
 
@@ -119,9 +119,9 @@ function createUser($conn, $name, $email, $username, $pwd) {
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt); 
 
-// alle sessies maken
 
-    header("location: ../login.php?error=none"); 
+
+    header("location: ../BonTemps/login.php?error=none"); 
     exit();
 }
 
@@ -145,7 +145,7 @@ function LoginUser($conn, $username, $pwd ) {
 
 
     if  ($uidExists === false ) { 
-        header("location: ../login.php?error=wronglogin");
+        header("location: ../BonTemps/login.php?error=wronglogin");
         exit(); 
     }
 
@@ -154,7 +154,7 @@ function LoginUser($conn, $username, $pwd ) {
     $checkPwd = password_verify($pwd, $pwdHashed); 
 
     if($checkPwd === false) { 
-        header("location: ../login.php?error=wronglogin");
+        header("location: ../BonTemps/login.php?error=wronglogin");
         exit(); 
     }
 

@@ -1,5 +1,9 @@
 $(document).ready(function () {
-    $('#loadBoekingen').click(function () {
-        $('#firstLoad').load('overzicht-boekingen.php');
+    $('#loadreserveringen').click(function () {
+        $('#firstLoad').load('reserveren-overzicht.php');
     });
 });
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );

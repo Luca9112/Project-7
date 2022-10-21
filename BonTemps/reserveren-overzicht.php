@@ -1,9 +1,16 @@
 <html>
+    <head>
+    
     <?php
         include '../includes/dbh.inc.php';
         include '../includes/functions.inc.php';
         include_once 'header.php';
         ?>
+        <title>overzicht</title>
+        <h1>Overzicht</h1>
+        <link href="css/reserveringen-overzicht.css" rel="stylesheet">
+
+         </head>
 <table>
     <thead>
         <tr>
