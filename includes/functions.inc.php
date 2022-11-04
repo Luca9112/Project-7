@@ -1,32 +1,33 @@
 <?php 
-function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid) {
-  $sql = "INSERT INTO reserveringen (userid, datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?, ?);";
+function reserveringToevoegen($conn, $date, $name, $email, $time, $phoneNumber, $userid) {
+  $sql = "INSERT INTO reserveringen (userid, datum, naam, email, tijd, telefoonnummer) VALUES (?, ?, ?, ?, ?,?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("location: reserveren-form.php?error=stmtfailed");
+      header("location: ../BonTemps/reserveren-form.php?error=stmtfailed");
       exit();
   }
   
-  mysqli_stmt_bind_param($stmt, "issss", $userid, $date, $name, $email, $phoneNumber);
+  mysqli_stmt_bind_param($stmt, "isssss", $userid, $date, $name, $email, $time, $phoneNumber);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   session_start();
-  header("location: reserveren-form.php?error=restaurantToegevoegd");
+  header("location: ../BonTemps/reserveren-form.php?error=reserveringToegevoegd");
   exit();
 }
+
 
 
  
   function getDay ($day="") {
     
-    if ($day=="") { $day = date("Y-m-d"); }
+    if ($day=="") { $day = date("d-m-Y"); }
 
   }
   function reserveringenOphalen($conn, $userid) {
     $sql = "SELECT * FROM reserveringen WHERE userid = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: reserveren-form.php?error=stmtfailed");
+        header("location: ../BonTemps/reserveren-form.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "i", $userid);
@@ -85,7 +86,11 @@ function uidExists($conn, $email) {
     $sql = "SELECT * FROM users WHERE usersEmail = ?;"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+
         header("location: ../Bontemps/signup.php?error=stmtfailed"); 
+
+        header("location: ../BonTemps/signup.php?error=stmtfailed"); 
+
         exit();
     }
 
@@ -109,7 +114,11 @@ function createUser($conn, $name, $email, $username, $pwd) {
     $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+
         header("location: ../Bontemps/signup.php?error=stmtfailed"); 
+
+        header("location: ../BonTemps/signup.php?error=stmtfailed"); 
+
         exit();
     }
 
@@ -119,9 +128,13 @@ function createUser($conn, $name, $email, $username, $pwd) {
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt); 
 
-// alle sessies maken
+
 
     header("location: ../Bontemps/login.php?error=none"); 
+
+
+    header("location: ../BonTemps/login.php?error=none"); 
+
     exit();
 }
 
@@ -144,8 +157,11 @@ function LoginUser($conn, $username, $pwd ) {
     $uidExists = uidExists($conn, $username, $email); 
 
 
-    if  ($uidExists === false ) { 
+
         header("location: ../Bontemps/login.php?error=wronglogin");
+
+        header("location: ../BonTemps/login.php?error=wronglogin");
+
         exit(); 
     }
 
@@ -154,7 +170,11 @@ function LoginUser($conn, $username, $pwd ) {
     $checkPwd = password_verify($pwd, $pwdHashed); 
 
     if($checkPwd === false) { 
+
         header("location: ../Bontemps/login.php?error=wronglogin");
+
+        header("location: ../BonTemps/login.php?error=wronglogin");
+        
         exit(); 
     }
 
@@ -166,4 +186,18 @@ function LoginUser($conn, $username, $pwd ) {
         exit(); 
     }
 }
-?>
+
+
+function reserveringVerwijder($conn, $reservering) {
+    $sql = "DELETE FROM reserveringen WHERE id = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/reserveren-overzicht.php?reservering=$reservering&error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $reservering);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../BonTemps/reserveren-overzicht.php?error=verwijderd");
+    exit();
+}

@@ -11,7 +11,6 @@
 </br> 
     <title>resrerveren</title>
     <link href="css/reserveren.css" rel="stylesheet">
-    </script>
   </head>
   <body>   
     <h1>Reserveren</h1>
@@ -22,8 +21,11 @@
       <label for="email">Email</label>
       <input type="email" required name="email" value=""/>
 
+      <label for="tijd">Tijd</label>
+      <input type="number" required name="time" value=""/>
+
       <label for="telefoonnummer">Telefoonnummer</label>
-      <input type="text" required name="phonenumber" value=""/>
+      <input type="number" required name="phonenumber" value=""/>
       <?php
       $mindate = date("Y-m-d");
       ?>
@@ -32,7 +34,7 @@
       <input type="date" required id="date" name="date"
              min="<?=$mindate?>"/>
 
-      <input type="submit" value="submit" name="submit"/>
+      <input type="submit" value="reserveren" name="reserveren"/>
     </form>
   </body>
 </html>
