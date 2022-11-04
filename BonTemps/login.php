@@ -1,13 +1,25 @@
+<head> 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/styles.login.css">
+</head> 
+
 <?php 
     include_once 'header.php';
 ?> 
 
-    <section class="signup-form"> 
+    <div class="wrapper fadeInDown"> 
+    <div id="formContent">
+
+
         <h2> Log in </h2> 
-        <form action="../includes/login.inc.php" method="post"> <br>
-         <input type="text" name="email" placeholder="E-mail..."><br> 
-         <input type="password" name="pwd" placeholder="Wachtwoord..."> <br>
-        <button type="submit" name="submit">log in  </button>         
+
+        
+        <form action="../includes/login.inc.php" method="post">
+         <input type="text" class="fadeIn third" name="email" placeholder="E-mail..."><br> 
+         <input type="password" class="fadeIn third"  name="pwd" placeholder="Wachtwoord..."> <br>
+        <button type="submit" class="fadeIn fourth" name="submit">log in  </button>         
         </form> 
 
         <?php
@@ -20,9 +32,9 @@
         }
     } 
 ?>
-    </section>
-
-    
+    </div> 
+ </div>   
+   
 
 
     

@@ -86,7 +86,11 @@ function uidExists($conn, $email) {
     $sql = "SELECT * FROM users WHERE usersEmail = ?;"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+
+        header("location: ../Bontemps/signup.php?error=stmtfailed"); 
+
         header("location: ../BonTemps/signup.php?error=stmtfailed"); 
+
         exit();
     }
 
@@ -110,7 +114,11 @@ function createUser($conn, $name, $email, $username, $pwd) {
     $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);"; 
     $stmt = mysqli_stmt_init($conn);   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+
+        header("location: ../Bontemps/signup.php?error=stmtfailed"); 
+
         header("location: ../BonTemps/signup.php?error=stmtfailed"); 
+
         exit();
     }
 
@@ -122,7 +130,11 @@ function createUser($conn, $name, $email, $username, $pwd) {
 
 
 
+    header("location: ../Bontemps/login.php?error=none"); 
+
+
     header("location: ../BonTemps/login.php?error=none"); 
+
     exit();
 }
 
@@ -145,8 +157,11 @@ function LoginUser($conn, $username, $pwd ) {
     $uidExists = uidExists($conn, $username, $email); 
 
 
-    if  ($uidExists === false ) { 
+
+        header("location: ../Bontemps/login.php?error=wronglogin");
+
         header("location: ../BonTemps/login.php?error=wronglogin");
+
         exit(); 
     }
 
@@ -155,7 +170,11 @@ function LoginUser($conn, $username, $pwd ) {
     $checkPwd = password_verify($pwd, $pwdHashed); 
 
     if($checkPwd === false) { 
+
+        header("location: ../Bontemps/login.php?error=wronglogin");
+
         header("location: ../BonTemps/login.php?error=wronglogin");
+        
         exit(); 
     }
 
