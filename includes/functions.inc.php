@@ -201,3 +201,16 @@ function reserveringVerwijder($conn, $reservering) {
     header("location: ../BonTemps/reserveren-overzicht.php?error=verwijderd");
     exit();
 }
+function userophalen($conn,  $usersId) { 
+    $sql ="SELECT * from users WHERE usersId = ?; "; 
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/profiel.php?error=stmtfailed"); 
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $usersId); 
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt); 
+    return $resultData; 
+    mysqli_stmt_close($stmt); 
+}
