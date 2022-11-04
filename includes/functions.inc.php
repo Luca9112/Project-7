@@ -1,19 +1,20 @@
 <?php 
-function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid) {
-  $sql = "INSERT INTO reserveringen (userid, datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?, ?);";
+function reserveringToevoegen($conn, $date, $name, $email, $time, $phoneNumber, $userid) {
+  $sql = "INSERT INTO reserveringen (userid, datum, naam, email, tijd, telefoonnummer) VALUES (?, ?, ?, ?, ?,?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("location: ../BonTemps/reserveren-form.php?error=stmtfailed");
       exit();
   }
   
-  mysqli_stmt_bind_param($stmt, "issss", $userid, $date, $name, $email, $phoneNumber);
+  mysqli_stmt_bind_param($stmt, "isssss", $userid, $date, $name, $email, $time, $phoneNumber);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   session_start();
   header("location: ../BonTemps/reserveren-form.php?error=reserveringToegevoegd");
   exit();
 }
+
 
 
  
@@ -166,4 +167,18 @@ function LoginUser($conn, $username, $pwd ) {
         exit(); 
     }
 }
-?>
+
+
+function reserveringVerwijder($conn, $reservering) {
+    $sql = "DELETE FROM reserveringen WHERE id = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/reserveren-overzicht.php?reservering=$reservering&error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $reservering);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../BonTemps/reserveren-overzicht.php?error=verwijderd");
+    exit();
+}
