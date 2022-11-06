@@ -180,6 +180,19 @@ function userophalen($conn,  $usersId) {
     return $resultData; 
     mysqli_stmt_close($stmt); 
 }
+function deleteuser($conn,  $usersId) { 
+    $sql ="DELETE * FROM users WHERE usersId = ?; "; 
+    $stmt = mysqli_stmt_init($conn);   
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/profiel.php?error=stmtfailed"); 
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $usersId); 
+    mysqli_stmt_execute($stmt); 
+    $resultData = mysqli_stmt_get_result($stmt); 
+    return $resultData; 
+    mysqli_stmt_close($stmt); 
+}
 
 
 

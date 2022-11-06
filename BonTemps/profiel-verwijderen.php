@@ -20,11 +20,9 @@
    ?>  
    <div class="wrapper fadeInDown"> 
     <div id="formContent">
-        <h2> profiel </h2> 
-         <input type="text" class="fadeIn second" readonly  name="name" value="<?php echo $row["usersName"]; ?> "><br> 
-         <input type="text" class="fadeIn third" readonly name="email" value="<?php echo $row["usersEmail"]; ?> "> <br>
-         <input type="text" class="fadeIn fourth" readonly name="uid" value="<?php echo $row["usersUid"]; ?>"> <br>   
-         <button type="submit" onclick="location='profiel-verwijderen.php'" classs="fadeIn fourth" name="submit"> profiel verwijderen </button>    
+         
+  
+     <button type="submit" onclick="location='profiel-verwijderen.inc.php'" classs="fadeIn fourth" name="submit"> weet je zeker dat je je profiel wilt verwijderen?  </button>    
         
          
 
