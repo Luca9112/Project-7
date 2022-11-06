@@ -185,7 +185,7 @@ function LoginUser($conn, $username, $pwd ) {
         header("location: ../BonTemps/index.php");
         exit(); 
     }
-}
+
 
 
 function reserveringVerwijder($conn, $reservering) {
@@ -213,4 +213,19 @@ function userophalen($conn,  $usersId) {
     $resultData = mysqli_stmt_get_result($stmt); 
     return $resultData; 
     mysqli_stmt_close($stmt); 
+}  
+
+function reserveringWijzigen($conn, $reservering, $newName, $newAdres, $newEmail, $newTelNum) {
+    $sql = "UPDATE reserveringen SET naam = ?, datum = ?, email = ?, telefoon = ?, WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../BonTemps/reservering-wijzigen.php?reservering=$reservering&error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sssii", $newName, $newDate, $newEmail, $newTelNum, $reservering);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../BonTemps/reserveren-overzicht.php?error=reserveringGewijzigd");
+
+    exit();
 }

@@ -17,22 +17,7 @@
 <link rel="stylesheet" href="css/styles.login.css">
 </head> 
 
-<?php 
-    include_once 'header.php';
-?> 
 
-    <div class="wrapper fadeInDown"> 
-    <div id="formContent">
-
-
-        <h2> Log in </h2> 
-
-        
-        <form action="../includes/login.inc.php" method="post">
-         <input type="text" class="fadeIn third" name="email" placeholder="E-mail..."><br> 
-         <input type="password" class="fadeIn third"  name="pwd" placeholder="Wachtwoord..."> <br>
-        <button type="submit" class="fadeIn fourth" name="submit">log in  </button>         
-        </form> 
 
         <?php
     if (isset($_GET["error"])) {
