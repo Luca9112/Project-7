@@ -21,10 +21,14 @@
    <div class="wrapper fadeInDown"> 
     <div id="formContent">
         <h2> profiel </h2> 
+        <input type="text" class="fadeIn second" hidden  name="name" value="<?php echo $row["usersId"]; ?> "><br> 
          <input type="text" class="fadeIn second" readonly  name="name" value="<?php echo $row["usersName"]; ?> "><br> 
          <input type="text" class="fadeIn third" readonly name="email" value="<?php echo $row["usersEmail"]; ?> "> <br>
-         <input type="text" class="fadeIn fourth" readonly name="uid" value="<?php echo $row["usersUid"]; ?>"> <br>   
-         <button type="submit" onclick="location='profiel-verwijderen.php'" classs="fadeIn fourth" name="submit"> profiel verwijderen </button>    
+         <input type="text" class="fadeIn fourth" readonly name="uid" value="<?php echo $row["usersUid"]; ?>"> <br>
+         <form action="" method="post"> <br>      
+         <button type="submit"  classs="fadeIn fourth" name="submit" > account verwijderen </button> 
+  
+
         
          
 
