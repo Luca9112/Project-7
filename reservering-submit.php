@@ -5,7 +5,6 @@ session_start();
     $userid = $_SESSION['userid'];
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $time = $_POST["time"];
     $phoneNumber = $_POST["phonenumber"];
     $date = $_POST["date"];
 
@@ -13,7 +12,7 @@ session_start();
     require_once 'includes/dbh.inc.php';
     require_once 'includes/functions.inc.php';
 
-    reserveringToevoegen($conn, $date, $name, $email, $time, $phoneNumber, $userid);
+    reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid);
      
   } else {
     header("location: reserveren-form.php?error=erisietsfoutgegaan");

@@ -1,17 +1,17 @@
 <?php 
-function reserveringToevoegen($conn, $date, $name, $email, $time, $phoneNumber, $userid) {
-    $sql = "INSERT INTO reserveringen (userid, datum, naam, email, tijd, telefoonnummer) VALUES (?, ?, ?, ?, ?,?);";
+function reserveringToevoegen($conn, $date, $name, $email, $phoneNumber, $userid) {
+    $sql = "INSERT INTO reserveringen (userid, datum, naam, email, telefoonnummer) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../reserveren-form.php?error=stmtfailed");
         exit();
     }
     
-    mysqli_stmt_bind_param($stmt, "isssss", $userid, $date, $name, $email, $time, $phoneNumber);
+    mysqli_stmt_bind_param($stmt, "issss", $userid, $date, $name, $email, $phoneNumber);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     session_start();
-    header("location: ../reserveren-overzicht.php?error=reserveringToegevoegd");
+    header("location: ../project-7/reserveren-overzicht.php?error=reserveringToegevoegd");
     exit();
   }
 
@@ -176,8 +176,8 @@ function reserveringVerwijder($conn, $reservering) {
     header("location: ../reserveren-overzicht.php?error=verwijderd");
     exit();
 }
-function reserveringWijzigen($conn, $reservering, $newName, $newAdres, $newEmail, $newTelNum) {
-    $sql = "UPDATE reserveringen SET naam = ?, datum = ?, email = ?, telefoon = ?, WHERE id = ?;";
+function reserveringWijzigen($conn, $reservering, $newName, $newDate, $newEmail, $newTelNum) {
+    $sql = "UPDATE reserveringen SET naam = ?, datum = ?, email = ?, telefoonnummer = ? WHERE id = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../reservering-wijzigen.php?reservering=$reservering&error=stmtfailed");

@@ -21,9 +21,6 @@
       <label for="email">Email</label>
       <input type="email" required name="email" value=""/>
 
-      <label for="tijd">Tijd</label>
-      <input type="number" required name="time" value=""/>
-
       <label for="telefoonnummer">Telefoonnummer</label>
       <input type="number" required name="phonenumber" value=""/>
       <?php
