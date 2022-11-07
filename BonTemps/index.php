@@ -51,7 +51,7 @@
                         <div class="p-5">
                             <h2 class="display-4">Onze menu's</h2>
                             <p>Onze menu's zijn vooraf al opgesteld en U kunt de keuze maken welk menu U wilt. Er is een gevarieerd keuze tussen vis, vlees, vegentarisch en nog veel meer. Bekijk hier onder onze menu's!</p>
-                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="Menu-aanmaken.php">Bekijk menu's</a>
+                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="../Menu2.php">Bekijk menu's</a>
                         </div>
                     </div>
                 </div>
@@ -69,6 +69,23 @@
                             <h2 class="display-4">Contactgegevens</h2>
                             <p>Heeft U vragen en wilt U contact met ons opnemen? Dat kan! Onze contact gegevens staan hier onder. </p>
                             <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Contactgegevens</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 4 -->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/pexels-pixabay-262978.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">Menu aanmaken</h2>
+                            <p>Onze menu's zijn vooraf al opgesteld en U kunt de keuze maken welk menu U wilt. Er is een gevarieerd keuze tussen vis, vlees, vegentarisch en nog veel meer. Bekijk hier onder onze menu's!</p>
+                            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="Menu-aanmaken.php">Bekijk menu's</a>
                         </div>
                     </div>
                 </div>
