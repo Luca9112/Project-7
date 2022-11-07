@@ -11,6 +11,7 @@
          <input type="text" class="fadeIn second"  name="email" placeholder="E-mail..."><br> 
          <input type="password" class="fadeIn third" name="pwd" placeholder="Wachtwoord..."> <br>
         <button type="submit" class="fadeIn fourth"name="submit">log in  </button>         
+<<<<<<< HEAD
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,6 +19,9 @@
 </head> 
 
 
+=======
+        </form> 
+>>>>>>> parent of 3d42e5c (Merge branch 'main' into jon-2)
 
         <?php
     if (isset($_GET["error"])) {
@@ -33,9 +37,6 @@
 </div> 
 
     
-    </div> 
- </div>   
-   
 
 
     

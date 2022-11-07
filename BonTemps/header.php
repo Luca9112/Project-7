@@ -29,7 +29,6 @@
                 echo "<li class='nav-item'><a class='nav-link' href='reserveren-overzicht.php'>zak </a></li>"; 
                 echo "<li class='nav-item'><a class='nav-link' href='profile.php'>profiel</a></li>" ;
                 echo "<li class='nav-item'><a class='nav-link' href='../includes/logout.inc.php'>Log uit</a></li>";  
-
 } 
     else{ 
         echo "<li class='nav-item'><a class='nav-link' href='signup.php'>account aanmaken </a></li>";
