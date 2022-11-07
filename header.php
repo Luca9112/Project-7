@@ -10,7 +10,7 @@
                 <ul> 
                     <li> <a href="index.php">home</a></li>
                     <li> <a href="reserveren-form.php">reserveren</a></li> 
-                    <li> <a href="menu.php">Menu's bekijken</a></li> 
+                    <li> <a href="reserveren-overzicht.php">overzicht reserveren</a></li> 
                     <?php
                       if (isset($_SESSION["useruid"])){ 
                         echo "<li> <a href='profile.php'>profiel</a></li>"; 
